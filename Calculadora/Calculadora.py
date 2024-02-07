@@ -38,7 +38,7 @@ def result(n1,n2):
 
 
 catch_num()
-verify_procedure(operators= "+",n1=5, n2= 10)
+verify_procedure(n1=float(input("Say")))
 result()
 
 
