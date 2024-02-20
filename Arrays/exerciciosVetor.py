@@ -70,7 +70,7 @@ def first_par():
 
 def last_par():
     lastPar = 0
-    for i in reversed(vetor):
+    for i in range(vetor[],1,-1,-1):
         if i % 2 == 0:
             lastPar = i
             break
