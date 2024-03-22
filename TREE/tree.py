@@ -32,6 +32,30 @@ class BinaryTree:
             self.simetric_traversal(node.right)
             print(')', end='')
 
+    def postorder_traversal(self, node=None):
+        if node is None:
+            node = self.root
+        if node.left:
+            self.postorder_traversal(node.left)
+        if node.right:
+            self.postorder_traversal(node.right)
+        print(node)
+        
+    # Metodo para achar a altura da arvore
+    def height(self, node=None):
+        if node is None:
+            node = self.root
+        hleft = 0
+        hright = 0
+        if node.left:
+            hleft = self.height(node.left)
+        if node.right:
+            hright = self.height(node.right)
+        if hright > hleft:
+            return hright + 1
+        return hleft + 1
+                
+        
         
 if __name__ == "__main__":
 #    tree = BinaryTree(7)
@@ -66,3 +90,35 @@ if __name__ == "__main__":
     
     tree.simetric_traversal()
     print()
+    
+    def postorder_example_tree():
+        tree = BinaryTree()
+        n1  = TreeNode('I')
+        n2  = TreeNode('N')
+        n3  = TreeNode('S')
+        n4  = TreeNode('C')
+        n5  = TreeNode('R')
+        n6  = TreeNode('E')
+        n7  = TreeNode('V')
+        n8  = TreeNode('A')
+        n9  = TreeNode('5')
+        n0 = TreeNode('3')
+        
+        n0.left = n6
+        n0.right = n9
+        n6.left = n1
+        n6.right = n5
+        n5.left = n2
+        n5.right = n4
+        n4.left = n3
+        n9.right = n8
+        n8.left = n7
+        
+        tree.root = n0
+        return tree
+    
+    if __name__ == "__main__":
+        tree = postorder_example_tree()
+        print("Percurso em pós ordem:")
+        tree.postorder_traversal()
+        print("Altura: ", tree.height())
