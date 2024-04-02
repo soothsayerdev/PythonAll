@@ -1,5 +1,3 @@
-
-
 class TreeNode:
     # Nó da Arvore
     def __init__(self, data) -> None:
